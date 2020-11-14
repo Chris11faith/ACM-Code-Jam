@@ -5,11 +5,17 @@ import config from './config';
 
 import React from 'react';
 
-import contextFactory from '../util/contextFactory';
+import contextFactory from '../../util/contextFactory';
 
 firebase.initializeApp(config);
+const googleLoginProvider = new firebase.auth.GoogleAuthProvider();
 
-const AuthContext = React.createContext(firebase.auth());
+const defaultValue = {
+  auth: firebase.auth(),
+  provider: {...googleLoginProvider}
+};
+
+const AuthContext = React.createContext(defaultValue);
 
 export const AuthContextProvider = ({children}) => {
   return (
