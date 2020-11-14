@@ -1,18 +1,26 @@
 import React from 'react';
-import {Button, Form} from 'semantic-ui-react';
+import {Grid, Button, Form} from 'semantic-ui-react';
 
 const LoginScreen = () => {
   return (
-    <Form onSubmit={e => e.preventDefault()}>
-      <div>
-        <Form.Input fluid label='Email Address' placeholder='Email' />
-      </div>
-      <div>
-        <Form.Input fluid label='Password' placeholder='Password' />
-      </div>
-      <div>
-        <Button primary>Login</Button>
-      </div>
+    <Form className="center-container" onSubmit={e => e.preventDefault()}>
+      <Grid style={{width: "30vw", textAlign: "left" }} columns={1}>
+        <Grid.Row>
+          <Grid.Column>
+            <Form.Input fluid label='Email Address' placeholder='Email' />
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row>
+          <Grid.Column>
+            <Form.Input fluid label='Password' placeholder='Password' />
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row>
+          <Grid.Column>
+            <Button block primary>Login</Button>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     </Form>
   );
 };
