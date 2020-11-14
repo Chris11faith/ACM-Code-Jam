@@ -1,10 +1,12 @@
 .ui.segment.pushable{
     height: 100vh;
+    max-height: 100vh;
 }
 
 .ui.inverted.vertical.labeled.icon.ui.overlay.left.thin.visible.sidebar.menu{
     display: flex;
     width: 25%; 
+    max-height: 100vh;
 }
 
 .ui.inverted.vertical.labeled.icon.ui.overlay.left.thin.visible.sidebar.menu a:nth-child(1){
@@ -13,7 +15,7 @@
 }
 .ui.inverted.vertical.labeled.icon.ui.overlay.left.thin.visible.sidebar.menu a:nth-child(2){
     flex-grow: 3;
-    overflow-y-: auto;
+    overflow-y: scroll;
     flex-grow: 7;
     
 }
