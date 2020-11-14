@@ -1,6 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {Icon} from 'semantic-ui-react';
+import SideNav from './components/SideNav';
 
 import LoginScreen from './components/LoginScreen';
 
@@ -12,7 +13,7 @@ const App = () => {
           <LoginScreen />
         </Route>
         <Route path='/'>
-          <Icon name='sticky note outline' />
+          <SideNav/>
         </Route>
       </Switch>
     </Router>

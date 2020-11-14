@@ -1,0 +1,35 @@
+.ui.segment.pushable{
+    height: 100vh;
+}
+
+.ui.inverted.vertical.labeled.icon.ui.overlay.left.thin.visible.sidebar.menu{
+    display: flex;
+    width: 25%; 
+}
+
+.ui.inverted.vertical.labeled.icon.ui.overlay.left.thin.visible.sidebar.menu a:nth-child(1){
+    flex-grow: 1;
+    flex: 1;
+}
+.ui.inverted.vertical.labeled.icon.ui.overlay.left.thin.visible.sidebar.menu a:nth-child(2){
+    flex-grow: 3;
+    overflow-y-: auto;
+    flex-grow: 7;
+    
+}
+.ui.inverted.vertical.labeled.icon.ui.overlay.left.thin.visible.sidebar.menu a:nth-child(3){
+    flex-grow: 1;
+    flex: 1;
+    float: left;
+    
+}
+
+.ui.massive.button{
+    float: right;
+}
+
+.Name{
+    margin: auto;
+    margin-top: auto;
+    padding-top: 2em;
+}
