@@ -10,7 +10,7 @@ const IdentityContext = React.createContext(defaultValue);
 
 export const IdentityContextProvider = ({children}) => {
   return (
-    <IdentityContext.Provider>
+    <IdentityContext.Provider value={{...defaultValue}}>
       {children}
     </IdentityContext.Provider>
   );
