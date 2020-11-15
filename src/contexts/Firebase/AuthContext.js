@@ -12,12 +12,13 @@ const googleLoginProvider = new firebase.auth.GoogleAuthProvider();
 
 const defaultValue = {
   auth: firebase.auth(),
-  provider: {...googleLoginProvider}
+  provider: googleLoginProvider
 };
 
 const AuthContext = React.createContext(defaultValue);
 
 export const AuthContextProvider = ({children}) => {
+  console.log({...defaultValue});
   return (
     <AuthContext.Provider value={{...defaultValue}}>
       {children}
