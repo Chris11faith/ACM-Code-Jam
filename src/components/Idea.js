@@ -24,7 +24,7 @@ const Idea = ({idea, onRemoveIdea, onEditIdea}) => {
             {!isEditing 
               ? <React.Fragment>
                   <span>{idea.idea}</span>
-                  <Button circular icon primary onClick={() => setIsEditing(true)}>
+                  <Button basic icon primary onClick={() => setIsEditing(true)}>
                     <Icon name='edit outline' />
                   </Button>
                 </React.Fragment>
@@ -34,7 +34,7 @@ const Idea = ({idea, onRemoveIdea, onEditIdea}) => {
                   value={editingItem}
                 />
             }
-            <Button circular icon negative onClick={() => onRemoveIdea(idea.id)}>
+            <Button basic icon negative onClick={() => onRemoveIdea(idea.id)}>
               <Icon name='trash' />
             </Button>
           </List.Header>
