@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import {Icon} from 'semantic-ui-react';
 
+import CornellNotes from './components/CornellNotes';
 import LoginScreen from './components/LoginScreen';
 
 const App = () => {
@@ -12,7 +12,7 @@ const App = () => {
           <LoginScreen />
         </Route>
         <Route path='/'>
-          <Icon name='sticky note outline' />
+          <CornellNotes />
         </Route>
       </Switch>
     </Router>
