@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Icon, Input, List, Segment} from 'semantic-ui-react';
+import {Button, Form, Icon, List, Segment} from 'semantic-ui-react';
 
 const Idea = ({idea, onRemoveIdea, onEditIdea}) => {
   const [isEditing, setIsEditing] = React.useState(false);
@@ -28,7 +28,8 @@ const Idea = ({idea, onRemoveIdea, onEditIdea}) => {
                     <Icon name='edit outline' />
                   </Button>
                 </React.Fragment>
-              : <Input
+              : <Form.Input
+                  fluid
                   action={{color: 'grey', icon: 'edit outline', onClick: () => onEdit()}}
                   onChange={onItemChanged}
                   value={editingItem}

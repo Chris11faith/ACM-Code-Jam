@@ -25,7 +25,6 @@ const IdeasList = () => {
 
   return (
     <List selection verticalAlign='middle'>
-      <Form onSubmit={e => e.preventDefault()}>
           <Form.Input
             action={{color: 'green', icon: 'plus', onClick: () => onClick()}}
             icon='pencil alternate'
@@ -33,7 +32,6 @@ const IdeasList = () => {
             onChange={onItemChanged}
             value={editingItem}
           />
-        </Form>
       {ideas.map(item => <Idea key={item.id} idea={item} onRemoveIdea={onRemoveIdea} onEditIdea={onEditIdea} />)}
     </List>
   );
