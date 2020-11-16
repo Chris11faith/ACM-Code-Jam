@@ -3,19 +3,22 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {Icon} from 'semantic-ui-react';
 
 import LoginScreen from './components/LoginScreen';
+import IdentityContextProvider from './contexts/IdentityContext';
 
 const App = () => {
   return (
-    <Router>
-      <Switch>
-        <Route path='/login'>
-          <LoginScreen />
-        </Route>
-        <Route path='/'>
-          <Icon name='sticky note outline' />
-        </Route>
-      </Switch>
-    </Router>
+    <IdentityContextProvider>
+      <Router>
+        <Switch>
+          <Route path='/login'>
+            <LoginScreen />
+          </Route>
+          <Route path='/'>
+            <Icon name='sticky note outline' />
+          </Route>
+        </Switch>
+      </Router>
+    </IdentityContextProvider>
   );
 }
 
