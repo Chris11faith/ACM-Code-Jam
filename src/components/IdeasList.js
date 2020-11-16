@@ -1,18 +1,25 @@
 import React from 'react';
 import {Form, List} from 'semantic-ui-react';
 
+import { useNotesContext } from '../contexts/NotesContext';
 import Idea from './Idea';
 
 
-const IdeasList = ({ideas, onAddIdea, onRemoveIdea}) => {
+const IdeasList = () => {
   const [editingItem, setEditingItem] = React.useState('');
+
+  const { ideas, addIdea, removeIdea, editIdea } = useNotesContext();
 
   const onClick = () => {
     if (editingItem !== ''){
-      onAddIdea(editingItem);
+      addIdea(editingItem);
       setEditingItem('');
     }
-  }
+  };
+
+  const onRemoveIdea = (id) => removeIdea(id);
+
+  const onEditIdea = (id, newIdea) => editIdea(id, newIdea);
 
   const onItemChanged = (e) => setEditingItem(e.target.value);
 
@@ -21,14 +28,13 @@ const IdeasList = ({ideas, onAddIdea, onRemoveIdea}) => {
       <Form onSubmit={e => e.preventDefault()}>
           <Form.Input
             action={{color: 'green', icon: 'plus', onClick: () => onClick()}}
-            actionPosition='right'
             icon='pencil alternate'
             iconPosition='left'
             onChange={onItemChanged}
             value={editingItem}
           />
         </Form>
-      {ideas.map(item => <Idea idea={item} onRemoveIdea={onRemoveIdea} />)}
+      {ideas.map(item => <Idea key={item.id} idea={item} onRemoveIdea={onRemoveIdea} onEditIdea={onEditIdea} />)}
     </List>
   );
 };
