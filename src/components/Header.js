@@ -1,7 +1,12 @@
 import React from 'react';
 import {Form} from 'semantic-ui-react';
+import styled from 'styled-components';
 
 import { useNotesContext } from '../contexts/NotesContext';
+
+const StyledWrapper = styled.div`
+  border-bottom: solid #dedede 3px;
+`;
 
 const Header = () => {
   const {headerInfo, setHeaderInfo} = useNotesContext();
@@ -28,7 +33,7 @@ const Header = () => {
   });
 
   return (
-    <React.Fragment>
+    <StyledWrapper>
       <Form.Input 
         label='Video Link'
         placeholder='Link'
@@ -51,7 +56,7 @@ const Header = () => {
           value={headerInfo.subject || ''}
         />
       </Form.Group>
-    </React.Fragment>
+    </StyledWrapper>
   );
 };
 

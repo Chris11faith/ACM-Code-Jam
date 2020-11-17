@@ -1,7 +1,8 @@
 import React from 'react';
-import {Button, Form, Grid} from 'semantic-ui-react';
+import {Grid} from 'semantic-ui-react';
 
 import { useNotesContext } from '../contexts/NotesContext';
+import {StyledContainer, StyledSaveButton} from './CornellNotes.styles';
 import Header from './Header';
 import IdeasList from './IdeasList';
 import NotesList from './NotesList';
@@ -11,8 +12,8 @@ const CornellNotes = () => {
   const { save } = useNotesContext();
 
   return (
-    <Form onSubmit={e => e.preventDefault()}>
-      <Grid celled='internally'>
+    <StyledContainer onSubmit={e => e.preventDefault()}>
+      <Grid>
         <Grid.Row>
           <Grid.Column>
             <Header />
@@ -32,10 +33,10 @@ const CornellNotes = () => {
           </Grid.Column>
         </Grid.Row>
       </Grid>
-      <Button primary onClick={save}>
+      <StyledSaveButton primary onClick={save}>
         Save
-      </Button>
-    </Form>
+      </StyledSaveButton>
+    </StyledContainer>
   );
 };
 
