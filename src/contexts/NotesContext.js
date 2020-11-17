@@ -25,7 +25,7 @@ export const NotesContextProvider = ({children}) => {
   const [headerInfo, setHeaderInfo] = React.useState({});
   const [ideas, setIdeas] = React.useState([]);
   const [notes, setNotes] = React.useState([]);
-  const [summary, setSummary] = React.useState('Test Summary');
+  const [summary, setSummary] = React.useState('');
 
   const addIdea = (newIdea) => {
     const idea = {
