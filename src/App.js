@@ -1,7 +1,8 @@
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
-import {Icon} from 'semantic-ui-react';
 
+import NotesContextProvider from './contexts/NotesContext';
+import CornellNotes from './components/CornellNotes';
 import LoginScreen from './components/LoginScreen';
 import SignUpScreen from './components/SignUpScreen';
 import IdentityContextProvider from './contexts/IdentityContext';
@@ -20,7 +21,9 @@ const App = () => {
               <SignUpScreen />
             </Route>
             <Route path='/'>
-              <Icon name='sticky note outline' />
+              <NotesContextProvider>
+                <CornellNotes />
+              </NotesContextProvider>
             </Route>
           </Switch>
         </Router>
