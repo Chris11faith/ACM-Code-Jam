@@ -7,7 +7,6 @@ const contextFactory = (context, name='') => () => {
     throw new Error(`Could not consume ${!name ? 'this' : `the '${name}'`} context since no provider is available`);
   }
 
-  console.log(`${ctx} -- contextFactory`);
   return ctx;
 };
 
