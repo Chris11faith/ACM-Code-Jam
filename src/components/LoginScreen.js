@@ -71,7 +71,7 @@ const LoginScreen = () => {
   const emailRequired = !!email;
   const passwordRequired = !!password;
 
-  const formValid = emailRequired && passwordRequired
+  const formValid = emailRequired && passwordRequired;
 
   return (
     loading ? <LoadingComponent/> :
