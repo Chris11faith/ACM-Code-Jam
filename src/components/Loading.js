@@ -1,9 +1,15 @@
 import React from 'react';
-import { Loader } from 'semantic-ui-react';
+import { Grid, Loader } from 'semantic-ui-react';
 
 const Loading = () => {
   return(
-    <Loader style={{alignSelf: "center"}} size="massive" active>Loading</Loader>
+    <Grid style={{width: "100vw", height: "100vh"}} verticalAlign="middle" centered>
+      <Grid.Row>
+        <Grid.Column>
+          <Loader size="massive" active>Loading</Loader>
+        </Grid.Column>
+      </Grid.Row>
+    </Grid>
   )
 }
 
