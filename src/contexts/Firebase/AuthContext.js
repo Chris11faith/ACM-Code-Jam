@@ -1,15 +1,13 @@
-import firebase from "firebase/app";
-import "firebase/auth";
-import "firebase/firestore";
-import config from './config';
-
+import firebase from './config';
 import React from 'react';
+import contextFactory from '../../util/contextFactory';
 
-import contextFactory from '../util/contextFactory';
+const defaultValue = {
+  auth: firebase.auth(),
+  googleProvider: new firebase.auth.GoogleAuthProvider()
+};
 
-firebase.initializeApp(config);
-
-const AuthContext = React.createContext(firebase.auth());
+const AuthContext = React.createContext(defaultValue);
 
 export const AuthContextProvider = ({children}) => {
   return (
