@@ -5,10 +5,27 @@ import NotesContextProvider from './contexts/NotesContext';
 import CornellNotes from './components/CornellNotes';
 import LoginScreen from './components/LoginScreen';
 import SignUpScreen from './components/SignUpScreen';
+import LoadingComponent from './components/Loading';
 import IdentityContextProvider from './contexts/IdentityContext';
-import AuthContextProvider from './contexts/Firebase/AuthContext';
+import AuthContextProvider, { useAuthContext } from './contexts/Firebase/AuthContext';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const App = () => {
+  const { auth } = useAuthContext();
+  const [user, loading] = useAuthState(auth);
+
+  const LoggedInRoute = ({children, ...rest}) => {
+    return (<Route {...rest} render={() => {
+      if (loading) {
+        return (<LoadingComponent/>);
+      } else if (user) {
+        return (children);
+      } else {
+        return (<Redirect to='/login'/>);
+      }
+    }} />)
+  }
+
   return (
     <AuthContextProvider>
       <IdentityContextProvider>
@@ -20,11 +37,11 @@ const App = () => {
             <Route path='/signUp'>
               <SignUpScreen />
             </Route>
-            <Route path='/'>
+            <LoggedInRoute path='/'>
               <NotesContextProvider>
                 <CornellNotes />
               </NotesContextProvider>
-            </Route>
+            </LoggedInRoute>
           </Switch>
         </Router>
       </IdentityContextProvider>
@@ -32,11 +49,5 @@ const App = () => {
   );
 }
 
-const LoggedInRoute = ({ component: Component, auth, ...rest }) => (
-  <Route {...rest} render={(props) => (
-    auth ? <Component {...props} />
-          : <Redirect to='/login'/>
-  )} />
-)
 
 export default App;

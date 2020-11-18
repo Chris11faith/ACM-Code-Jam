@@ -1,5 +1,4 @@
-.center-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+#root {
+  display: flex;
+  height: 100%;
 }
