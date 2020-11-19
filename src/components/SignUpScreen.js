@@ -2,7 +2,7 @@ import React from 'react';
 import LoadingComponent from './Loading';
 import { Link, useHistory } from 'react-router-dom';
 import { useAuthContext } from '../contexts/Firebase/AuthContext';
-import { Grid, Message, Button, Form } from 'semantic-ui-react';
+import { Grid, Message, Button, Header, Form } from 'semantic-ui-react';
 
 const SignUpScreen = () => {
   const { auth } = useAuthContext();
@@ -67,12 +67,12 @@ const SignUpScreen = () => {
     loading ? <LoadingComponent/> :
     <Grid centered verticalAlign="middle" style={{height: "100vh"}}>
       <Grid.Row>
-        <Grid.Column style={{width: "50vw", minWidth: "300px"}}>
+        <Grid.Column>
           <Form onSubmit={signUpUser}>
-            <Grid>
+            <Grid container>
               <Grid.Row>
                 <Grid.Column>
-                  <h1>Wakanda Forever</h1>
+                  <Header as="h1">Wakanda Forever</Header>
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row>

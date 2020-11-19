@@ -6,36 +6,39 @@ import Header from './Header';
 import IdeasList from './IdeasList';
 import NotesList from './NotesList';
 import Summary from './Summary';
+import Sidebar from './Sidebar';
 
 const CornellNotes = () => {
   const { save } = useNotesContext();
 
   return (
-    <Form onSubmit={e => e.preventDefault()}>
-      <Grid celled='internally'>
-        <Grid.Row>
-          <Grid.Column>
-            <Header />
-          </Grid.Column>
-        </Grid.Row>
-        <Grid.Row>
-          <Grid.Column width={4}>
-            <IdeasList />
-          </Grid.Column>
-          <Grid.Column width={12}>
-            <NotesList />
-          </Grid.Column>
-        </Grid.Row>
-        <Grid.Row>
-          <Grid.Column>
-            <Summary />
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-      <Button primary onClick={save}>
-        Save
-      </Button>
-    </Form>
+    <Sidebar>
+      <Form onSubmit={e => e.preventDefault()}>
+        <Grid celled='internally'>
+          <Grid.Row>
+            <Grid.Column>
+              <Header />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column width={4}>
+              <IdeasList />
+            </Grid.Column>
+            <Grid.Column width={12}>
+              <NotesList />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column>
+              <Summary />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+        <Button primary onClick={save}>
+          Save
+        </Button>
+      </Form>
+    </Sidebar>
   );
 };
 

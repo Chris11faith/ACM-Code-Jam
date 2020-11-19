@@ -2,7 +2,7 @@ import React from 'react';
 import LoadingComponent from './Loading';
 import { Link, useHistory } from 'react-router-dom';
 import { useAuthContext } from '../contexts/Firebase/AuthContext';
-import {Grid, Message, Button, Form} from 'semantic-ui-react';
+import {Grid, Message, Header, Button, Form} from 'semantic-ui-react';
 
 const LoginScreen = () => {
   const history = useHistory();
@@ -77,12 +77,12 @@ const LoginScreen = () => {
     loading ? <LoadingComponent/> :
     <Grid centered verticalAlign="middle" style={{height: "100vh"}}>
       <Grid.Row>
-        <Grid.Column style={{width: "50vw", minWidth: "500px" }}>
+        <Grid.Column>
           <Form onSubmit={loginWithEmailPassword}>
-            <Grid>
+            <Grid container>
               <Grid.Row>
                 <Grid.Column>
-                  <h1>Wakanda Forever</h1>
+                  <Header as="h1">Wakanda Forever</Header>
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row>

@@ -1,6 +1,6 @@
-import firebase from "firebase/app";
+import firebase from './config';
 import React from 'react';
-import contextFactory from '../util/contextFactory';
+import contextFactory from '../../util/contextFactory';
 
 const DatabaseContext = React.createContext(firebase.firestore());
 
