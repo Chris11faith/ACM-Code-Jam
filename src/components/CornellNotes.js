@@ -14,7 +14,7 @@ const CornellNotes = () => {
   return (
     <Sidebar>
       <Form onSubmit={e => e.preventDefault()}>
-        <Grid celled='internally'>
+        <Grid container>
           <Grid.Row>
             <Grid.Column>
               <Header />
@@ -33,10 +33,14 @@ const CornellNotes = () => {
               <Summary />
             </Grid.Column>
           </Grid.Row>
+          <Grid.Row>
+            <Grid.Column>
+              <Button primary onClick={save}>
+                Save
+              </Button>
+            </Grid.Column>
+          </Grid.Row>
         </Grid>
-        <Button primary onClick={save}>
-          Save
-        </Button>
       </Form>
     </Sidebar>
   );
