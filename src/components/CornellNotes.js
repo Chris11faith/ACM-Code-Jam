@@ -21,10 +21,10 @@ const CornellNotes = () => {
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
-            <Grid.Column width={4}>
+            <Grid.Column>
               <IdeasList />
             </Grid.Column>
-            <Grid.Column width={12}>
+            <Grid.Column width={8}>
               <NotesList />
             </Grid.Column>
           </Grid.Row>

@@ -24,7 +24,7 @@ const IdeasList = () => {
   const onItemChanged = (e) => setEditingItem(e.target.value);
 
   return (
-    <List selection verticalAlign='middle'>
+    <List selection>
       <Form.Input
         action={{color: 'green', icon: 'plus', onClick: () => onClick()}}
         icon='pencil alternate'
