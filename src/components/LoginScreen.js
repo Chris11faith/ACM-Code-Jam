@@ -1,15 +1,12 @@
 import React from 'react';
-import { db } from '../contexts/Firebase/config';
 import LoadingComponent from './Loading';
 import { Link, useHistory } from 'react-router-dom';
-import { useIdentityContext } from '../contexts/IdentityContext';
 import { useAuthContext } from '../contexts/Firebase/AuthContext';
 import {Grid, Message, Header, Button, Form} from 'semantic-ui-react';
 
 const LoginScreen = () => {
   const history = useHistory();
   const { auth, googleProvider } = useAuthContext();
-  const { setUser } = useIdentityContext();
 
   const [ loading, setLoading ] = React.useState(false);
 

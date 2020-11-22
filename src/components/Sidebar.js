@@ -1,6 +1,6 @@
 import React from 'react'
-import { toDate, db, noteConverter } from '../contexts/Firebase/config';
-import { Sidebar, Label, Accordion, Icon, Header, Loader, Menu, Button } from 'semantic-ui-react';
+import { db, noteConverter } from '../contexts/Firebase/config';
+import { Sidebar, Label, Accordion, Icon, Header, Loader, Menu } from 'semantic-ui-react';
 import { useAuthContext } from '../contexts/Firebase/AuthContext';
 import { useHistory } from 'react-router-dom';
 import { useIdentityContext } from '../contexts/IdentityContext';
@@ -27,13 +27,9 @@ const SidebarComponent = ({children}) => {
   };
 
   const showGroups = () => {
-    return user?.groups?.map(group => 
-      {
-        return (
-          <GroupListItem key={group.id} group={group} />
-        )
-      }
-    )
+    return user?.groups?.map(group => (
+      <GroupListItem key={group.id} group={group} />
+    ))
   }
 
   const showUserNotes = () => (

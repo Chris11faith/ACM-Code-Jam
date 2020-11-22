@@ -51,14 +51,14 @@ export const IdentityContextProvider = ({children}) => {
 
   React.useEffect(() => {
     return auth.onAuthStateChanged((u) => {
-      db.collection('users')
+      return db.collection('users')
         .doc(u.uid)
         .withConverter(userConverter)
         .onSnapshot(d => {
           setUser(d.data())
         })
     })
-  } , []);
+  } , [ auth ]);
 
   return (
     <IdentityContext.Provider value={{ ...defaultValue, user, setUser }}>

@@ -43,11 +43,13 @@ const GroupListItem = ({ group, ...rest}) => {
   const [ isExpanded, setIsExpanded ] = React.useState(false);
   const [ sharedNotes, setSharedNotes ] = React.useState([]);
   const [ myNotes, setMyNotes ] = React.useState([]);
+  const [ myTimeout, setMyTimeout ] = React.useState(null);
+  const [ shouldLoad, setShouldLoad ] = React.useState(false);
   const { auth } = useAuthContext();
   const [ user ] = useAuthState(auth);
 
   React.useEffect(() => {
-    if ( isExpanded ) {
+    if ( shouldLoad ) {
       return db.collection('groups')
         .doc(group.id)
         .collection('notes')
@@ -56,16 +58,28 @@ const GroupListItem = ({ group, ...rest}) => {
         .where('shared', '==', true)
         .limit(25)
         .onSnapshot(snapshot => {
+          console.log('Taking snapshot of group ' + group.id)
           setSharedNotes(snapshot.docs.map(doc => doc.data()))
-        })
+        });
     } else {
       setSharedNotes([]);
     }
-  }, [ isExpanded, group.id, user.uid ]);
-
+  }, [ shouldLoad, group.id, user.uid ]);
 
   React.useEffect(() => {
-    if ( isExpanded ) {
+    if (isExpanded) {
+      clearTimeout(myTimeout);
+      // Start loading results if not doing it
+      setShouldLoad(true);
+    } else {
+      setMyTimeout(setTimeout(() => {
+        setShouldLoad(false)
+      }, 60000))
+    }
+  }, [ isExpanded ]);
+
+  React.useEffect(() => {
+    if (shouldLoad) {
       return db.collection('groups')
         .doc(group.id)
         .collection('notes')
@@ -78,7 +92,7 @@ const GroupListItem = ({ group, ...rest}) => {
     } else {
       setMyNotes([]);
     }
-  }, [ isExpanded , group.id, user.uid]);
+  }, [ shouldLoad, group.id, user.uid]);
 
 
   const toggleGroupList = () => {
