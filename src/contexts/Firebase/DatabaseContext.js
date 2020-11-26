@@ -1,8 +1,12 @@
 import firebase from "firebase/app";
+import "firebase/database";
+import config from './config';
 import React from 'react';
 import contextFactory from '../util/contextFactory';
 
-const DatabaseContext = React.createContext(firebase.firestore());
+firebase.initializeApp(config);
+
+const DatabaseContext = React.createContext(firebase.database());
 
 export const DatabaseContextProvider = ({children}) => {
   return (

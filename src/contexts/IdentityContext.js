@@ -3,13 +3,14 @@ import React from 'react';
 import contextFactory from '../util/contextFactory';
 
 const defaultValue = {
+  // TODO
 };
 
 const IdentityContext = React.createContext(defaultValue);
 
 export const IdentityContextProvider = ({children}) => {
   return (
-    <IdentityContext.Provider value={{ ...defaultValue }}>
+    <IdentityContext.Provider value={{...defaultValue}}>
       {children}
     </IdentityContext.Provider>
   );
